@@ -13,11 +13,15 @@ function triggerChange() {
   var val1 = num_shares * share_price - cost_basis;
   $('#capital_gain').val(val1.toFixed(2));
 
+  var capital_gain = parseFloat($('#capital_gain').val());
+
   var val2 = capital_gain * tax_rate
   $('#taxes_owed').val(val2.toFixed(2));
 
   var val3 = share_price * num_shares
   $('#new_basis').val(val3.toFixed(2));
+
+  var taxes_owed = parseFloat($('#taxes_owed').val());
 
   var val4 = share_price-taxes_owed/(num_shares*(tax_rate-1));
   $('#new_price').val(val4.toFixed(2));
